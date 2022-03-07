@@ -3,12 +3,25 @@
  */
 package iplr.java;
 
+import java.nio.file.Paths;
+import java.io.File;
+import java.util.Map;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            Map<?, ?> map = mapper.readValue(Paths.get("../data/codes.json").toFile(), Map.class);
+            for (Map.Entry<?, ?> entry : map.entrySet()) {
+                System.out.println(entry.getKey() + "=" + entry.getValue());
+            }
+        } catch (Exception e) {
+            System.out.println("Exception: " + e);
+        }
     }
 }
