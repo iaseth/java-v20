@@ -6,60 +6,55 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Team {
+	static int count = 0;
+	private int index;
 	public int id;
-	public String abb;
-	public String color;
-	public String fn;
-	public String name;
-	public String sn;
+	public String abb, color, fn, name, sn;
 
 	public Team() {
+		index = count++;
 		// System.out.println("Created new Team.");
 	}
 
 	public void print() {
-		System.out.println("Team: " + this.fn + " (" + this.abb + ")");
+		System.out.println("[" + index + "] Team: " + this.fn + " (" + this.abb + ")");
 	}
 }
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Ground {
+	static int count = 0;
+	private int index;
 	public int id;
-	public String city;
-	public String country;
-	public String fn;
-	public String path;
-	public String sn;
+	public String city, country, fn, path, sn;
 
 	public Ground() {
+		index = count++;
 		// System.out.println("Created new Ground.");
 	}
 
 	public void print() {
-		System.out.println("Ground: " + this.fn + " (" + this.city + ")");
+		System.out.println("[" + index + "] Ground: " + this.fn + " (" + this.city + ")");
 	}
 }
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Player {
+	static int count = 0;
+	private int index;
 	public int id;
-	public boolean batsRight;
-	public boolean bowlsRight;
-	public String country;
-	public String fn;
-	public String fun;
-	public String nick;
-	public String path;
-	public String sn;
+	public boolean batsRight, bowlsRight;
+	public String country, fn, fun, nick, path, sn;
 
 	public Player() {
+		index = count++;
 		// System.out.println("Created new Player.");
 	}
 
 	public void print() {
-		System.out.println("Player: " + this.fn + " (" + this.country + ")");
+		System.out.println("[" + index + "] Player: " + this.fn + " (" + this.country + ")");
 	}
 }
 
@@ -71,12 +66,12 @@ class CodesJson {
 	public List<Player> players;
 
 	public CodesJson () {
-		System.out.println("I was called!");
+		// System.out.println("I was called!");
 	}
 
 	public void print() {
 		for (Team t : teams) t.print();
 		for (Ground g : grounds) g.print();
-		for (Player p : players) p.print();
+		// for (Player p : players) p.print();
 	}
 }
