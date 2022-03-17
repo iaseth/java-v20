@@ -2,8 +2,7 @@ package iplr.java;
 
 
 
-class Team {
-	League league;
+class Team extends ItemBaseClass {
 	TeamJson jo;
 
 	public Team(League league, TeamJson jo) {

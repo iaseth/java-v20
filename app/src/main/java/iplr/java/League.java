@@ -8,6 +8,8 @@ import java.util.ArrayList;
 class League {
 	CodesJson cj;
 	List<Team> teams;
+	List<Ground> grounds;
+	List<Player> players;
 
 	public League(CodesJson cj) {
 		this.cj = cj;
@@ -17,14 +19,39 @@ class League {
 			Team team = new Team(this, jo);
 			teams.add(team);
 		}
+
+		grounds = new ArrayList<Ground>();
+		for (GroundJson jo : cj.grounds) {
+			Ground ground = new Ground(this, jo);
+			grounds.add(ground);
+		}
+
+		players = new ArrayList<Player>();
+		for (PlayerJson jo : cj.players) {
+			Player player = new Player(this, jo);
+			players.add(player);
+		}
 	}
 
 	public void printTeams() {
 		for (Team team : teams) team.print();
 	}
 
+	public void printGrounds() {
+		for (Ground ground : grounds) ground.print();
+	}
+
+	public void printPlayers() {
+		for (Player player : players) player.print();
+	}
+
+	public void printItems() {
+		printTeams(); printGrounds();
+		// printPlayers();
+	}
+
 	public void run() {
 		// cj.print();
-		printTeams();
+		printItems();
 	}
 }
