@@ -12,26 +12,26 @@ import com.google.gson.Gson;
 
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+	public String getGreeting() {
+		return "Hello World!";
+	}
 
-    public static void gsonExample() {
-        Gson gson = new Gson();
-        // JsonReader reader = new JsonReader(new FIleReader("../data/codes.json"));
-    }
+	public static void gsonExample() {
+		Gson gson = new Gson();
+		// JsonReader reader = new JsonReader(new FIleReader("../data/codes.json"));
+	}
 
-    public static void jacksonExample() {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            CodesJson cj = mapper.readValue(new File("../data/codes.json"), CodesJson.class);
-            cj.print();
-        } catch (Exception e) {
-            System.out.println("Exception: " + e);
-        }
-    }
+	public static void jacksonExample() {
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			CodesJson cj = mapper.readValue(new File("../data/codes.json"), CodesJson.class);
+			cj.print();
+		} catch (Exception e) {
+			System.out.println("Exception: " + e);
+		}
+	}
 
-    public static void main(String[] args) {
-        jacksonExample();
-    }
+	public static void main(String[] args) {
+		jacksonExample();
+	}
 }
