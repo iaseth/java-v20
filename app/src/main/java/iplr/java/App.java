@@ -7,31 +7,24 @@ import java.nio.file.Paths;
 import java.io.File;
 import java.util.Map;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 
 
 
 public class App {
-	public String getGreeting() {
-		return "Hello World!";
-	}
+	static League league;
 
-	public static void gsonExample() {
-		Gson gson = new Gson();
-		// JsonReader reader = new JsonReader(new FIleReader("../data/codes.json"));
-	}
-
-	public static void jacksonExample() {
+	public static void runLeague() {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			CodesJson cj = mapper.readValue(new File("../data/codes.json"), CodesJson.class);
-			cj.print();
+			league = new League(cj);
+			league.run();
 		} catch (Exception e) {
 			System.out.println("Exception: " + e);
 		}
 	}
 
 	public static void main(String[] args) {
-		jacksonExample();
+		runLeague();
 	}
 }
