@@ -8,10 +8,19 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 class BatsmanInningJson {
 	public int id, r, b, n4, n6;
+	public Dismissal out;
 
 	public void print() {
 		System.out.println("\tbatsman: " + r + " (" + b + ")");
 	}
+}
+
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+class Dismissal {
+	public int bowler, over, ball;
+	public String type;
+	public List<Integer> fielders;
 }
 
 
@@ -48,7 +57,7 @@ class Wicket {
 	public int id, r, w, over, ball;
 
 	public void print() {
-		System.out.println("\twicket " + w + "-" + r);
+		System.out.println("\twicket " + w + "-" + r + " (" + over + "." + ball + ")");
 	}
 }
 
