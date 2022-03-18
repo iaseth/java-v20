@@ -11,6 +11,11 @@ class League {
 	List<Ground> grounds;
 	List<Player> players;
 
+	BundleJson bj;
+	List<Season> seasons;
+	List<Match> matches;
+	List<TeamInning> teamInnings;
+
 	public League(CodesJson cj) {
 		this.cj = cj;
 
@@ -34,12 +39,30 @@ class League {
 	}
 
 	public void loadBundle(BundleJson bj) {
-		System.out.println("loadBundle() was called.");
-		for (SeasonJson s : bj.seasons) {
-			// System.out.println(s.year);
+		this.bj = bj;
+		seasons = new ArrayList<Season>();
+		for (SeasonJson sj : bj.seasons) {
+			seasons.add(new Season(this, sj));
+			// break;
 		}
-		bj.seasons.get(0).matches.get(0).print();
 	}
+
+
+	public Team getTeam(int id) {
+		for (Team t : teams) if (t.id == id) return t;
+		return null;
+	}
+
+	public Ground getGround(int id) {
+		for (Ground g : grounds) if (g.id == id) return g;
+		return null;
+	}
+
+	public Player getPlayer(int id) {
+		for (Player p : players) if (p.id == id) return p;
+		return null;
+	}
+
 
 	public void printTeams() {
 		for (Team team : teams) team.print();
@@ -58,8 +81,16 @@ class League {
 		// printPlayers();
 	}
 
+	public void printSeasons() {
+		for (Season season : seasons) {
+			System.out.println("Season: " + season.year + " (" + season.matches.size() + " matches)");
+		}
+	}
+
+
 	public void run() {
 		// cj.print();
-		printItems();
+		// printItems();
+		printSeasons();
 	}
 }
