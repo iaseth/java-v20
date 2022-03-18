@@ -36,8 +36,9 @@ class League {
 	public void loadBundle(BundleJson bj) {
 		System.out.println("loadBundle() was called.");
 		for (SeasonJson s : bj.seasons) {
-			System.out.println(s.year);
+			// System.out.println(s.year);
 		}
+		bj.seasons.get(0).matches.get(0).print();
 	}
 
 	public void printTeams() {
