@@ -33,6 +33,13 @@ class League {
 		}
 	}
 
+	public void loadBundle(BundleJson bj) {
+		System.out.println("loadBundle() was called.");
+		for (SeasonJson s : bj.seasons) {
+			System.out.println(s.year);
+		}
+	}
+
 	public void printTeams() {
 		for (Team team : teams) team.print();
 	}

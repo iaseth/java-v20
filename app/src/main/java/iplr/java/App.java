@@ -16,9 +16,14 @@ public class App {
 	public static void runLeague() {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
+
 			CodesJson cj = mapper.readValue(new File("../data/codes.json"), CodesJson.class);
 			league = new League(cj);
-			league.run();
+			// league.run();
+
+			ObjectMapper bundleMapper = new ObjectMapper();
+			BundleJson bj = bundleMapper.readValue(new File("../data/bundle.json"), BundleJson.class);
+			league.loadBundle(bj);
 		} catch (Exception e) {
 			System.out.println("Exception: " + e);
 		}
