@@ -86,8 +86,25 @@ class TeamInningJson {
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+class SquadJson {
+	public List<Integer> players;
+	public int team, captain, wk;
+}
+
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+class MatchMeta {
+	public int year, number, ground;
+	public char state, outcome;
+	public List<Integer> order;
+}
+
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 class MatchJson {
 	public List<TeamInningJson> innings;
+	public List<SquadJson> teams;
+	public MatchMeta meta;
 
 	public void print() {
 		System.out.println("MatchJson.");

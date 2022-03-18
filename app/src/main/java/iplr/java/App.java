@@ -24,6 +24,7 @@ public class App {
 			ObjectMapper bundleMapper = new ObjectMapper();
 			BundleJson bj = bundleMapper.readValue(new File("../data/bundle.json"), BundleJson.class);
 			league.loadBundle(bj);
+			league.run();
 		} catch (Exception e) {
 			System.out.println("Exception: " + e);
 		}
