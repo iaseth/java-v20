@@ -8,10 +8,11 @@ class Ground extends ItemBaseClass {
 	public Ground(League league, GroundJson jo) {
 		this.league = league;
 		this.jo = jo;
+		this.fn = jo.fn;
+		this.sn = jo.sn;
+		this.path = jo.path;
 		// System.out.println("Created new Ground.");
 	}
 
-	public void print() {
-		System.out.println("Ground: " + jo.fn);
-	}
+	String getClassname () { return "Ground"; }
 }

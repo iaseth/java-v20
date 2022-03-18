@@ -8,10 +8,11 @@ class Player extends ItemBaseClass {
 	public Player(League league, PlayerJson jo) {
 		this.league = league;
 		this.jo = jo;
+		this.fn = jo.fn;
+		this.sn = jo.sn;
+		this.path = jo.path;
 		// System.out.println("Created new Player.");
 	}
 
-	public void print() {
-		System.out.println("Player: " + jo.fn);
-	}
+	String getClassname () { return "Player"; }
 }
