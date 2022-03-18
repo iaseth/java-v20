@@ -1,5 +1,7 @@
 package iplr.java;
 
+import java.util.List;
+
 
 
 class ItemBaseClass {
@@ -12,6 +14,7 @@ class ItemBaseClass {
 	League league;
 	int id;
 	String fn, sn, path;
+	List<Match> matches;
 
 	ItemBaseClass() {
 		index = count++;
@@ -22,6 +25,6 @@ class ItemBaseClass {
 	String getClassname () { return "ItemBaseClass"; }
 
 	public void print() {
-		System.out.println("[#" + index + "] " + getClassname() + ": " + fn + " (" + path + ")");
+		System.out.println("[#" + index + "] " + getClassname() + ": " + fn + " (" + path + ") [" + matches.size() + " matches]");
 	}
 }
