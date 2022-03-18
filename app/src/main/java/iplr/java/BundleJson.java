@@ -10,7 +10,7 @@ class BatsmanInningJson {
 	public int id, r, b, n4, n6;
 
 	public void print() {
-		System.out.println("Batsman: " + r + " (" + b + ")");
+		System.out.println("\tbatsman: " + r + " (" + b + ")");
 	}
 }
 
@@ -21,20 +21,57 @@ class BowlerInningJson {
 	public String ov;
 
 	public void print() {
-		System.out.println("Bowler: " + w + "-" + r + " (" + ov + ")");
+		System.out.println("\tbowler: " + w + "-" + r + " (" + ov + ")");
+	}
+}
+
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+class Extras {
+	public int b, lb, p, nb, wd;
+}
+
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+class Over {
+	public int over;
+	public List<String> balls;
+
+	public void print() {
+		System.out.println("\tover " + over + ": " + balls);
+	}
+}
+
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+class Wicket {
+	public int id, r, w, over, ball;
+
+	public void print() {
+		System.out.println("\twicket " + w + "-" + r);
 	}
 }
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class TeamInningJson {
+	public int runs, balls;
+	public String overs;
 	public List<BatsmanInningJson> batting;
 	public List<BowlerInningJson> bowling;
+	public Extras extras;
+	public List<Over> history;
+	public List<Wicket> wickets;
 
 	public void print() {
-		System.out.println("TeamInningJson.");
+		System.out.println("Batsmen:");
 		for (BatsmanInningJson b : batting) b.print();
+		System.out.println("Bowlers:");
 		for (BowlerInningJson b : bowling) b.print();
+		System.out.println("Overs:");
+		for (Over o : history) o.print();
+		System.out.println("Wickets:");
+		for (Wicket w : wickets) w.print();
 	}
 }
 
