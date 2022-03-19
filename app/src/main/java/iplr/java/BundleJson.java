@@ -42,7 +42,7 @@ class Extras {
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Over {
+class OverJson {
 	public int over;
 	public List<String> balls;
 
@@ -53,7 +53,7 @@ class Over {
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Wicket {
+class WicketJson {
 	public int id, r, w, over, ball;
 
 	public void print() {
@@ -69,8 +69,8 @@ class TeamInningJson {
 	public List<BatsmanInningJson> batting;
 	public List<BowlerInningJson> bowling;
 	public Extras extras;
-	public List<Over> history;
-	public List<Wicket> wickets;
+	public List<OverJson> history;
+	public List<WicketJson> wickets;
 
 	public void print() {
 		System.out.println("Batsmen:");
@@ -78,9 +78,9 @@ class TeamInningJson {
 		System.out.println("Bowlers:");
 		for (BowlerInningJson b : bowling) b.print();
 		System.out.println("Overs:");
-		for (Over o : history) o.print();
+		for (OverJson o : history) o.print();
 		System.out.println("Wickets:");
-		for (Wicket w : wickets) w.print();
+		for (WicketJson w : wickets) w.print();
 	}
 }
 
