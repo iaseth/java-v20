@@ -11,6 +11,7 @@ class TeamInning {
 	List<BatsmanInning> batting;
 	List<BowlerInning> bowling;
 	List<Wicket> wickets;
+	OverHistory overHistory;
 	int runs, balls, wkts;
 	String overs;
 
@@ -40,5 +41,7 @@ class TeamInning {
 		for (WicketJson wj : tj.wickets) {
 			wickets.add(new Wicket(this, wj));
 		}
+
+		overHistory = new OverHistory(this, tj.history);
 	}
 }
