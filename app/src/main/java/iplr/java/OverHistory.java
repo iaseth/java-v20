@@ -12,7 +12,6 @@ class Over {
 	public Over(OverJson jo) {
 		number = jo.over;
 		balls = jo.balls;
-		System.out.println(number + " ==> " + balls);
 	}
 }
 

@@ -16,6 +16,8 @@ class League {
 	List<Match> matches;
 	List<TeamInning> teamInnings;
 
+	List<BatsmanInning> centuries;
+
 	public League(CodesJson cj) {
 		this.cj = cj;
 
@@ -40,6 +42,8 @@ class League {
 
 	public void loadBundle(BundleJson bj) {
 		this.bj = bj;
+		centuries = new ArrayList<BatsmanInning>();
+
 		seasons = new ArrayList<Season>();
 		for (SeasonJson sj : bj.seasons) {
 			seasons.add(new Season(this, sj));
@@ -88,9 +92,15 @@ class League {
 	}
 
 
+	public void printCenturies() {
+		for (BatsmanInning b : centuries) b.print();
+	}
+
+
 	public void run() {
 		// cj.print();
 		// printItems();
 		printSeasons();
+		printCenturies();
 	}
 }

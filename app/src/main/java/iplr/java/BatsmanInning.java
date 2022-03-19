@@ -14,6 +14,9 @@ class BatsmanInning {
 		balls = jo.b;
 		this.n4 = jo.n4;
 		this.n6 = jo.n6;
+		if (runs >= 100) {
+			teamInning.league.centuries.add(this);
+		}
 	}
 
 	public void print() {
